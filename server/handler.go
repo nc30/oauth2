@@ -1,6 +1,7 @@
 package server
 
 import (
+	"context"
 	"net/http"
 	"time"
 
@@ -19,7 +20,7 @@ type (
 	ClientScopeHandler func(clientID, scope string) (allowed bool, err error)
 
 	// UserAuthorizationHandler get user id from request authorization
-	UserAuthorizationHandler func(w http.ResponseWriter, r *http.Request) (userID string, err error)
+	UserAuthorizationHandler func(ctx context.Context, w http.ResponseWriter, r *http.Request) (userID string, err error)
 
 	// PasswordAuthorizationHandler get user id from username and password
 	PasswordAuthorizationHandler func(username, password string) (userID string, err error)
