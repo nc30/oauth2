@@ -28,7 +28,7 @@ func NewServer(cfg *Config, manager oauth2.Manager) *Server {
 	// default handler
 	srv.ClientInfoHandler = ClientBasicHandler
 
-	srv.UserAuthorizationHandler = func(context.TODO(), w http.ResponseWriter, r *http.Request) (string, error) {
+	srv.UserAuthorizationHandler = func(ctx context.Context, w http.ResponseWriter, r *http.Request) (string, error) {
 		return "", errors.ErrAccessDenied
 	}
 
